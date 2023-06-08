@@ -61,3 +61,60 @@ fn main() {
 }
 ```
 
+7. 🌟
+```rust
+// 将 ? 替换成你的答案
+fn main() {
+    let x = 1_000.000_1; // f64
+    let y: f32 = 0.12; // f32
+    let z = 0.01_f64; // f64
+
+    assert_eq!(type_of(&x), "f64".to_string());
+    println!("Success!");
+}
+
+fn type_of<T>(_: &T) -> String {
+    format!("{}", std::any::type_name::<T>())
+}
+```
+
+8. 🌟🌟 使用两种方法来让下面代码工作
+```rust
+fn main() {
+    assert!(0.1_f32 + 0.2_f32 == 0.3_f32);
+}
+
+fn main() {
+    assert!((0.1_f64+ 0.2 - 0.3).abs() < 0.001);
+}
+```
+
+9. 🌟🌟 两个目标: 1. 修改 assert! 让它工作 2. 让 println! 输出: 97 - 122
+```rust
+fn main() {
+    let mut sum = 0;
+    for i in -3..2 {
+        sum += i
+    }
+
+    assert!(sum == -5);
+
+    for c in 'a'..='z' {
+        println!("{}",c as i32);
+    }
+}
+```
+
+10. 🌟🌟
+```rust
+// 填空
+use std::ops::{Range, RangeInclusive};
+fn main() {
+    assert_eq!((1..5), Range{ start: 1, end: 5 });
+    assert_eq!((1..=5), RangeInclusive::new(1, 5));
+}
+```
+
+11. 🌟
+```rust
+
