@@ -32,3 +32,32 @@ fn type_of<T>(_: &T) -> String {
     format!("{}", std::any::type_name::<T>())
 }
 ```
+
+4. 🌟🌟
+```rust
+// 填空，让代码工作
+fn main() {
+    assert_eq!(i8::MAX, 127); 
+    assert_eq!(u8::MAX, 255); 
+}
+```
+
+5. 🌟🌟
+```rust
+// 解决代码中的错误和 `panic`
+fn main() {
+   let v1 = 231_u8 + 8;
+   let v2 = i8::checked_add(119, 8).unwrap();
+   println!("{},{}",v1,v2);
+}
+```
+
+6. 🌟🌟
+```rust
+// 修改 `assert!` 让代码工作
+fn main() {
+    let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
+    assert!(v == 1597);
+}
+```
+
