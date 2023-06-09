@@ -26,3 +26,29 @@ fn print_char(c : char) {
     println!("{}", c);
 }
 ```
+
+3. 🌟
+```rust
+
+// 使成功打印
+fn main() {
+    let _f: bool = false;
+
+    let t = true;
+    if t {
+        println!("Success!")
+    }
+} 
+```
+
+4. 🌟
+```rust
+
+fn main() {
+    let f = true;
+    let t = true && false;
+    assert_eq!(!t, f);
+
+    println!("Success!")
+}
+```
