@@ -102,3 +102,28 @@ fn main() {
     println!("{:?}, {:?}", x, y);
 }
 ```
+
+6. 🌟
+```rust
+fn main() {
+    let s = String::from("hello, ");
+    
+    // 只修改下面这行代码 !
+    let mut s1 = s;
+
+    s1.push_str("world")
+}
+```
+
+7. 🌟🌟🌟
+```rust
+fn main() {
+    let x = Box::new(5);
+    
+    let mut y = Box::new(4);     // 完成该行代码，不要修改其它行！
+    
+    *y = 4;
+    
+    assert_eq!(*x, 5);
+}
+```
