@@ -87,3 +87,57 @@ fn main() {
     println!("{}",s1);
 }
 ```
+
+7. 🌟🌟 我们可以使用两种方法将 &str 转换成 String 类型
+```rust
+// 使用至少两种方法来修复错误
+fn main() {
+    let s = "hello, world".to_string();
+    greetings(s)
+}
+
+fn greetings(s: String) {
+    println!("{}",s)
+}
+
+// 使用至少两种方法来修复错误
+fn main() {
+    let s = "hello, world";
+    greetings(s)
+}
+
+fn greetings(s: &str) {
+    println!("{}",s)
+}
+
+// 使用至少两种方法来修复错误
+fn main() {
+    let s = String::from("hello, world");
+    greetings(s)
+}
+
+fn greetings(s: String) {
+    println!("{}",s)
+}
+```
+
+8. 🌟🌟 我们可以使用 String::from 或 to_string 将 &str 转换成 String 类型
+```rust
+// 使用两种方法来解决错误，不要新增代码行
+fn main() {
+    let s = "hello, world".to_string();
+    let s1: &str = &s;
+}
+
+// 使用两种方法来解决错误，不要新增代码行
+fn main() {
+    let s = "hello, world";
+    let s1: &str = s;
+}
+
+// 使用两种方法来解决错误，不要新增代码行
+fn main() {
+    let s = "hello, world".to_string();
+    let s1: String = s;
+}
+```
