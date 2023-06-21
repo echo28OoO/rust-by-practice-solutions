@@ -141,3 +141,71 @@ fn main() {
     let s1: String = s;
 }
 ```
+
+9. 🌟
+```rust
+fn main() {
+    // 你可以使用转义的方式来输出想要的字符，这里我们使用十六进制的值，例如 \x73 会被转义成小写字母 's'
+    // 填空以输出 "I'm writing Rust"
+    let byte_escape = "I'm writing Ru\x73\x74!";
+    println!("What are you doing\x3F (\\x3F means ?) {}", byte_escape);
+
+    // 也可以使用 Unicode 形式的转义字符
+    let unicode_codepoint = "\u{211D}";
+    let character_name = "\"DOUBLE-STRUCK CAPITAL R\"";
+
+    println!("Unicode character {} (U+211D) is called {}",
+                unicode_codepoint, character_name );
+
+    // 还能使用 \ 来连接多行字符串
+    let long_string = "String literals
+                        can span multiple lines.
+                        The linebreak and indentation here \
+                         can be escaped too!";
+    println!("{}", long_string);
+}
+```
+
+10. 🌟🌟🌟 有时候需要转义的字符很多，我们会希望使用更方便的方式来书写字符串: raw string.
+```rust
+/* 填空并修复所有错误 */
+fn main() {
+    let raw_str = "Escapes don't work here: \x3F \u{211D}";
+    // 修改上面的行让代码工作
+    assert_eq!(raw_str, "Escapes don't work here: ? ℝ");
+
+    // 如果你希望在字符串中使用双引号，可以使用以下形式
+    let quotes = r#"And then I said: "There is no escape!""#;
+    println!("{}", quotes);
+
+    // 如果希望在字符串中使用 # 号，可以如下使用：
+    let  delimiter = r###"A string with "# in it. And even "##!"###;
+    println!("{}", delimiter);
+
+    // 填空
+    let long_delimiter = r###"Hello, "##""###;
+    assert_eq!(long_delimiter, "Hello, \"##\"")
+}
+```
+
+11. 🌟🌟 你无法通过索引的方式去访问字符串中的某个字符，但是可以使用切片的方式 &s1[start..end] ，但是start 和 end 必须准确落在字符的边界处.
+```rust
+fn main() {
+    let s1 = String::from("hi,中国");
+    let h = &s1[0..1]; // 修改当前行来修复错误，提示: `h` 字符在 UTF-8 格式中只需要 1 个字节来表示
+    assert_eq!(h, "h");
+
+    let h1 = &s1[3..6];// 修改当前行来修复错误，提示: `中` 字符在 UTF-8 格式中需要 3 个字节来表示
+    assert_eq!(h1, "中");
+}
+```
+
+12. 🌟
+```rust
+fn main() {
+    // 填空，打印出 "你好，世界" 中的每一个字符
+    for c in "你好，世界".chars() {
+        println!("{}", c)
+    }
+}
+```
