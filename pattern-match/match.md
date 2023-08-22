@@ -109,3 +109,50 @@ fn main() {
     assert_eq!(count, 2);
 }
 ```
+
+6. 🌟
+```rust
+fn main() {
+    let o = Some(7);
+
+    // 移除整个 `match` 语句块，使用 `if let` 替代
+    if let Some(i) = o {
+        println!("This is a really long string and `{:?}`", i);
+    };
+}
+```
+
+7. 🌟🌟
+```rust
+// 填空
+enum Foo {
+    Bar(u8)
+}
+
+fn main() {
+    let a = Foo::Bar(1);
+
+    if let Foo::Bar(i) = a {
+        println!("foobar 持有的值是: {}", i);
+    }
+}
+```
+
+8. 🌟🌟
+```rust
+enum Foo {
+    Bar,
+    Baz,
+    Qux(u32)
+}
+
+fn main() {
+    let a = Foo::Qux(10);
+
+    match a {
+        Foo::Bar => println!("match foo::bar"),
+        Foo::Baz => println!("match foo::baz"),
+        _ =>  println!("match others")
+    }
+}
+```
