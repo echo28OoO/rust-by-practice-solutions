@@ -106,3 +106,69 @@ fn main() {
     // TODO ^ 试着反注释此行
 }
 ```
+
+1. 🌟🌟 方法跟函数类似：都是使用 fn 声明，有参数和返回值。但是与函数不同的是，方法定义在结构体的上下文中(枚举、特征对象也可以定义方法)，而且方法的第一个参数一定是 self 或其变体 &self 、&mut self，self 代表了当前调用的结构体实例。
+
+```rust
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    // 完成 area 方法，返回矩形 Rectangle 的面积
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle { width: 30, height: 50 };
+
+    assert_eq!(rect1.area(), 1500);
+}
+```
+
+2. 🌟🌟 self 会拿走当前结构体实例(调用对象)的所有权，而 &self 却只会借用一个不可变引用，&mut self 会借用一个可变引用
+```rust
+// 只填空，不要删除任何代码行!
+#[derive(Debug)]
+struct TrafficLight {
+    color: String,
+}
+
+impl TrafficLight {
+    pub fn show_state(&self)  {
+        println!("the current state is {}", self.color);
+    }
+}
+fn main() {
+    let light = TrafficLight{
+        color: "red".to_owned(),
+    };
+    // 不要拿走 `light` 的所有权
+    light.show_state();
+    // 否则下面代码会报错
+    println!("{:?}", light);
+}
+```
+
+3. 🌟🌟 &self 实际上是 self: &Self 的缩写或者说语法糖
+```rust
+struct TrafficLight {
+    color: String,
+}
+
+impl TrafficLight {
+    // 使用 `Self` 填空
+    pub fn show_state(self: &Self)  {
+        println!("the current state is {}", self.color);
+    }
+
+    // 填空，不要使用 `Self` 或其变体
+    pub fn change_state(&mut self) {
+        self.color = "green".to_string()
+    }
+}
+fn main() {}
+```
