@@ -91,3 +91,51 @@ fn main() {
     println!("{}, {}", x.value(), y.value());
 }
 ```
+
+6. 🌟🌟🌟
+```rust
+struct Point<T, U> {
+    x: T,
+    y: U,
+}
+
+impl<T, U> Point<T, U> {
+    // 实现 mixup，不要修改其它代码！
+    fn mixup<V, W>(self, point: Point<V, W>) -> Point<T, W> {
+        Point {
+            x: self.x,
+            y: point.y,
+        }
+    } 
+}
+
+fn main() {
+    let p1 = Point { x: 5, y: 10 };
+    let p2 = Point { x: "Hello", y: '中'};
+
+    let p3 = p1.mixup(p2);
+
+    assert_eq!(p3.x, 5);
+    assert_eq!(p3.y, '中');
+}
+```
+
+7. 🌟🌟
+```rust
+// 修复错误，让代码工作
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl Point<f32> {
+    fn distance_from_origin(&self) -> f32 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+
+fn main() {
+    let p = Point{x: 5_f32, y: 10_f32};
+    println!("{}",p.distance_from_origin())
+}
+```
