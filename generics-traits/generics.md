@@ -40,3 +40,54 @@ fn main() {
     assert_eq!(2.46, sum(1.23, 1.23));
 }
 ```
+
+3. 🌟
+```rust
+// 实现一个结构体 Point 让代码工作
+
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let integer = Point { x: 5, y: 10 };
+    let float = Point { x: 1.0, y: 4.0 };
+}
+```
+
+4. 🌟🌟
+```rust
+
+// 修改以下结构体让代码工作
+struct Point<T, A> {
+    x: T,
+    y: A,
+}
+
+fn main() {
+    // 不要修改这行代码！
+    let p = Point{x: 5, y : "hello".to_string()};
+}
+```
+
+5. 🌟🌟
+```rust
+// 为 Val 增加泛型参数，不要修改 `main` 中的代码
+struct Val<T> {
+    val: T,
+}
+
+impl<T> Val<T> {
+    fn value(&self) -> &T {
+        &self.val
+    }
+}
+
+
+fn main() {
+    let x = Val{ val: 3.0 };
+    let y = Val{ val: "hello".to_string()};
+    println!("{}, {}", x.value(), y.value());
+}
+```
